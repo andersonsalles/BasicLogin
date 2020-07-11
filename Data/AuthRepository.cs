@@ -47,7 +47,7 @@ namespace BasicLogin.Data
         {
             using var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt);
             var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-            return computedHash.SequenceEqual(passwordSalt);
+            return computedHash.SequenceEqual(passwordHash);
         }
 
         public async Task<bool> UserExists(string username)
