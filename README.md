@@ -1,5 +1,5 @@
 # BasicLogin
-My template for a login Api build on .NetCore 3.1
+My template for a login Api, built on .NetCore 3.1
 
 ## Copyright and license
 
