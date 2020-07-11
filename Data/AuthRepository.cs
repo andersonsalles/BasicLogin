@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using BasicLogin.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BasicLogin.Data
 {
@@ -32,14 +33,26 @@ namespace BasicLogin.Data
             passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
         }
 
-        public Task<User> Login(string username, string password)
+        public async Task<User> Login(string username, string password)
         {
-            throw new NotImplementedException();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            
+            if (user == null)
+                return null;
+
+            return !VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt) ? null : user;
         }
 
-        public Task<bool> UserExists(string username)
+        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {
-            throw new NotImplementedException();
+            using var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt);
+            var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            return computedHash.SequenceEqual(passwordSalt);
+        }
+
+        public async Task<bool> UserExists(string username)
+        {
+            return await _context.Users.AnyAsync(x => x.Username == username);
         }
     }
 }
