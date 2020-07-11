@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using BasicLogin.Data;
+using BasicLogin.Dtos;
 using BasicLogin.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.IIS;
@@ -19,18 +20,18 @@ namespace BasicLogin.Controllers
         }
 
         [HttpPost("Register")]
-        public async Task<IActionResult> Register(string username, string password)
+        public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
-            username = username.ToLower();
-            if (await _repo.UserExists(username))
+            userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
+            if (await _repo.UserExists(userForRegisterDto.Username))
                 return BadRequest("Username already exists");
 
             var userToCreate = new User
             {
-                Username = username
+                Username = userForRegisterDto.Username
             };
 
-            var createdUser = _repo.Register(userToCreate, password);
+            var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
             return StatusCode(201);
         }
 
