@@ -11,7 +11,7 @@ namespace BasicLogin.Models
         public int Id { get; set; }
         [Required]
         [StringLength(255)]
-        public string MainsAddress { get; set; }
+        public string MainAddress { get; set; }
         [Required]
         public int StateId { get; set; }
         [Required]
