@@ -8,6 +8,7 @@ namespace BasicLogin.Models
 {
     public class Address
     {
+        public int Id { get; set; }
         [Required]
         [StringLength(255)]
         public string MainsAddress { get; set; }
