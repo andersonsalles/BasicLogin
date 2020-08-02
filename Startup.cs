@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using BasicLogin.Data;
+using BasicLogin.Data.Dtos;
 using BasicLogin.Data.Implementation;
 using BasicLogin.Data.Interfaces;
+using BasicLogin.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -47,6 +50,14 @@ namespace BasicLogin
                         ValidateAudience = false
                     };
                 });
+
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<PersonDto, Person>();
+                cfg.CreateMap<Person, PersonDto>();
+            });
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
