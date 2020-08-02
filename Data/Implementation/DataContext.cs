@@ -1,7 +1,7 @@
 ﻿using BasicLogin.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BasicLogin.Data.Interfaces
+namespace BasicLogin.Data.Implementation
 {
     public class DataContext : DbContext
     {

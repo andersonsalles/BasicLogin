@@ -4,7 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using BasicLogin.Data;
-using BasicLogin.Data.Implementations;
+using BasicLogin.Data.Interfaces;
 using BasicLogin.Dtos;
 using BasicLogin.Models;
 using Microsoft.AspNetCore.Mvc;

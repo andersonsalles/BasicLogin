@@ -1,7 +1,7 @@
 ﻿using System;
-using BasicLogin.Data.Implementations;
+using BasicLogin.Data.Interfaces;
 
-namespace BasicLogin.Data.Interfaces
+namespace BasicLogin.Data.Implementation
 {
     public class PersonRepository : IPersonRepository
     {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using BasicLogin.Models;
 
-namespace BasicLogin.Data.Implementations
+namespace BasicLogin.Data.Interfaces
 {
     public interface IAuthRepository
     {

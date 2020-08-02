@@ -1,4 +1,4 @@
-﻿namespace BasicLogin.Data.Implementations
+﻿namespace BasicLogin.Data.Interfaces
 {
     public interface IPersonRepository
     {

@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using BasicLogin.Data.Implementations;
+using BasicLogin.Data.Interfaces;
 using BasicLogin.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BasicLogin.Data.Interfaces
+namespace BasicLogin.Data.Implementation
 {
     public class AuthRepository : IAuthRepository
     {

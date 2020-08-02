@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using BasicLogin.Data;
-using BasicLogin.Data.Implementations;
+using BasicLogin.Data.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BasicLogin.Controllers
