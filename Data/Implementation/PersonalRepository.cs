@@ -6,7 +6,7 @@ using BasicLogin.Data.Interfaces;
 
 namespace BasicLogin.Data.Implementation
 {
-    public class CorporationRepository : ICorporationRepository
+    public class PersonalRepository : IPersonalRepository
     {
         public void Create()
         {

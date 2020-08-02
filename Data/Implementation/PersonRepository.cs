@@ -5,11 +5,11 @@ namespace BasicLogin.Data.Implementation
 {
     public class PersonRepository : IPersonRepository
     {
-        private readonly IAddress _address;
-        private readonly ICorporation _corporation;
+        private readonly IAddressRepository _address;
+        private readonly ICorporationRepository _corporation;
         private readonly DataContext _context;
 
-        public PersonRepository(IAddress address, ICorporation corporation, DataContext context)
+        public PersonRepository(IAddressRepository address, ICorporationRepository corporation, DataContext context)
         {
             _address = address;
             _corporation = corporation;

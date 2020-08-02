@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BasicLogin.Data.Interfaces
 {
-    public interface ICorporation
+    public interface ICorporationRepository
     {
         public void Create();
         public void Update();

@@ -6,7 +6,7 @@ using BasicLogin.Data.Interfaces;
 
 namespace BasicLogin.Data.Implementation
 {
-    public class AddressRepository : IAddress
+    public class AddressRepository : IAddressRepository
     {
         public void Create()
         {
