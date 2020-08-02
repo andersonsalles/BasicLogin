@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BasicLogin.Data.Interfaces
 {
-    public interface IPersonalRepository
+    public interface IPhoneRepository
     {
         public void Create();
         public void Update();
