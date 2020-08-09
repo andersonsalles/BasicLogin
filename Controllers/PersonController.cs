@@ -3,6 +3,7 @@ using AutoMapper;
 using BasicLogin.Data;
 using BasicLogin.Data.Dtos;
 using BasicLogin.Data.Interfaces;
+using BasicLogin.Dtos;
 using BasicLogin.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +23,7 @@ namespace BasicLogin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(PersonDto person)
+        public async Task<IActionResult> Post(PersonToSaveDto person)
         {
             var p = _mapper.Map<Person>(person);
             _personRepository.Create();

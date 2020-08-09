@@ -4,20 +4,22 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using BasicLogin.Models;
+using Newtonsoft.Json;
 
 namespace BasicLogin.Dtos
 {
     public class AddressDto
     {
-        public int Id { get; set; }
-        [Required]
-        [StringLength(255)]
+        [JsonProperty("mainAddress", Required = Required.Always)]
         public string MainAddress { get; set; }
-        [Required]
+
+        [JsonProperty("stateId", Required = Required.Always)]
         public int StateId { get; set; }
-        [Required]
+
+        [JsonProperty("cityId", Required = Required.Always)]
         public int CityId { get; set; }
+
+        [JsonProperty("neighborhood", Required = Required.Always)]
         public string Neighborhood { get; set; }
-        public int PersonId { get; set; }
     }
 }
