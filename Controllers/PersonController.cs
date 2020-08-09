@@ -1,11 +1,9 @@
-﻿using System.Threading.Tasks;
-using AutoMapper;
-using BasicLogin.Data;
-using BasicLogin.Data.Dtos;
+﻿using AutoMapper;
 using BasicLogin.Data.Interfaces;
 using BasicLogin.Dtos;
 using BasicLogin.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace BasicLogin.Controllers
 {
