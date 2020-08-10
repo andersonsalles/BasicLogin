@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using BasicLogin.Data.Interfaces;
 using BasicLogin.Dtos;
 using BasicLogin.Models;
@@ -23,9 +24,34 @@ namespace BasicLogin.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(PersonToSaveDto person)
         {
-            var p = _mapper.Map<Person>(person);
-            _personRepository.Create();
-            return StatusCode(201);
+            try
+            {
+                var personToSave = _mapper.Map<Person>(person.PersonDto);
+                var addressToSave = _mapper.Map<Address>(person.AddressDto);
+                var emailToSave = _mapper.Map<Email>(person.EmailDto);
+                var phoneNumberToSave = _mapper.Map<Phone>(person.PhoneDto);
+                if (person.PersonalDto != null)
+                {
+                    var personalToSave = _mapper.Map<Personal>(person.PersonalDto);
+                    _personRepository.Create(personToSave, addressToSave, emailToSave, personalToSave);
+                }
+                else
+                {
+                    var corporationToSave = _mapper.Map<Corporation>(person.CorporationDto);
+                    _personRepository.Create(personToSave, addressToSave, emailToSave, corporationToSave);
+                }
+
+                
+                
+
+               
+                return StatusCode(201);
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"One or more erros on Save Person. {e.Message}");
+            }
+            
         }
     }
 }

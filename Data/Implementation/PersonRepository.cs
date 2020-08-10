@@ -1,5 +1,6 @@
 ﻿using System;
 using BasicLogin.Data.Interfaces;
+using BasicLogin.Models;
 
 namespace BasicLogin.Data.Implementation
 {
@@ -22,14 +23,18 @@ namespace BasicLogin.Data.Implementation
             _phoneRepository = phoneRepository;
             _context = context;
         }
-        public void Create()
-        {
-            _address.Create();
-            _emailRepository.Create();
-
-        }
 
         public void Delete()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Create(Person personToSave, Address addressToSave, Email emailToSave, Personal personalToSave)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Create(Person personToSave, Address addressToSave, Email emailToSave, Corporation corporationToSave)
         {
             throw new NotImplementedException();
         }
