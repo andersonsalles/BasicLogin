@@ -7,7 +7,8 @@ namespace BasicLogin.Data.Interfaces
     {
         public Task Create(Person personToSave, Address addressToSave, Email emailToSave, Phone phoneNumberToSave,
             Personal personalToSave);
-        public void Create(Person personToSave, Address addressToSave, Email emailToSave, Phone phoneNumberToSave, Corporation corporationToSave);
+        public Task Create(Person personToSave, Address addressToSave, Email emailToSave, Phone phoneNumberToSave,
+            Corporation corporationToSave);
         public void Update();
         public void Delete();
     }
