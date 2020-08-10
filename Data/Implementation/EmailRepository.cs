@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using BasicLogin.Data.Interfaces;
 using BasicLogin.Models;
@@ -9,9 +7,17 @@ namespace BasicLogin.Data.Implementation
 {
     public class EmailRepository : IEmailRepository
     {
-        public Task<Email> Create(Email emailToSave)
+        private readonly DataContext _dataContext;
+
+        public EmailRepository(DataContext dataContext)
         {
-            throw new NotImplementedException();
+            _dataContext = dataContext;
+        }
+        public async Task<Email> Create(Email emailToSave)
+        {
+            await _dataContext.AddAsync(emailToSave);
+            await _dataContext.SaveChangesAsync();
+            return emailToSave;
         }
 
         public void Update()
