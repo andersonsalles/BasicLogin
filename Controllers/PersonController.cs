@@ -33,12 +33,12 @@ namespace BasicLogin.Controllers
                 if (person.PersonalDto != null)
                 {
                     var personalToSave = _mapper.Map<Personal>(person.PersonalDto);
-                    _personRepository.Create(personToSave, addressToSave, emailToSave, personalToSave);
+                    _personRepository.Create(personToSave, addressToSave, emailToSave, phoneNumberToSave, personalToSave);
                 }
                 else
                 {
                     var corporationToSave = _mapper.Map<Corporation>(person.CorporationDto);
-                    _personRepository.Create(personToSave, addressToSave, emailToSave, corporationToSave);
+                    _personRepository.Create(personToSave, addressToSave, emailToSave, phoneNumberToSave, corporationToSave);
                 }
 
                 

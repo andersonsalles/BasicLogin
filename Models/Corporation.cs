@@ -14,6 +14,8 @@ namespace BasicLogin.Models
         public string Cnpj { get; set; }
         public string Ie { get; set; }
         public string RazaoSocial { get; set; }
-        
+        public Person Person { get; set; }
+        public int PersonId { get; set; }
+
     }
 }
