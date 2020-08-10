@@ -1,20 +1,17 @@
-﻿using System;
+﻿using BasicLogin.Data.Interfaces;
+using BasicLogin.Dtos;
+using BasicLogin.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using BasicLogin.Data;
-using BasicLogin.Data.Interfaces;
-using BasicLogin.Dtos;
-using BasicLogin.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Server.IIS;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 
 namespace BasicLogin.Controllers
 {
-    
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
@@ -76,8 +73,6 @@ namespace BasicLogin.Controllers
             {
                 token = tokenHandler.WriteToken(token)
             });
-
         }
-
     }
 }

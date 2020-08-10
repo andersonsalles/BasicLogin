@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BasicLogin.Data.Interfaces;
+using BasicLogin.Models;
 
 namespace BasicLogin.Data.Implementation
 {
     public class AddressRepository : IAddressRepository
     {
-        public void Create()
+        private readonly DataContext _context;
+
+        public AddressRepository(DataContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public async Task<Address> Create(Address addressToSave)
+        {
+            await _context.AddAsync(addressToSave);
+            await _context.SaveChangesAsync();
+            return addressToSave;
         }
 
         public void Update()
