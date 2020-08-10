@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using BasicLogin.Data.Interfaces;
 using BasicLogin.Models;
@@ -9,9 +7,18 @@ namespace BasicLogin.Data.Implementation
 {
     public class PhoneRepository :IPhoneRepository
     {
-        public Task<Phone> Create(Phone phoneNumberToSave)
+        private readonly DataContext _dataContext;
+
+        public PhoneRepository(DataContext dataContext)
         {
-            throw new NotImplementedException();
+            _dataContext = dataContext;
+        }
+
+        public async Task<Phone> Create(Phone phoneNumberToSave)
+        {
+            await _dataContext.AddAsync(phoneNumberToSave);
+            await _dataContext.SaveChangesAsync();
+            return phoneNumberToSave;
         }
 
         public void Update()
